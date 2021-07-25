@@ -1,10 +1,22 @@
+import { getWithInKm } from "../getDistance";
 import Course from "../model/Course";
-import DataList from "../model/DataList";
 
 export const getAllList = async (req, res) => {
-  const { areacode } = req.query;
+  const { lat, lng, distance } = req.query;
+  const array = [lat, lng, distance];
+
+  for (let item of array) {
+    if (typeof item !== "string") {
+      return res.json({ ok: false, error: "올바른 값을 입력하세요" });
+    }
+
+    if (!item || String(item).length === 0) {
+      return res.json({ ok: false, error: "올바른 값을 입력하세요." });
+    }
+  }
+
   try {
-    const data = await DataList.find({ areacode });
+    const data = await getWithInKm(lat, lng, distance);
     return res.json({ ok: true, data });
   } catch (e) {
     console.log(e);
@@ -17,10 +29,16 @@ export const getAllList = async (req, res) => {
 
 export const getCourseData = async (req, res) => {
   const { courseid } = req.query;
+  if (typeof courseid !== "string") {
+    return res.json({ ok: false, error: "올바른 값을 입력하세요" });
+  }
 
+  if (!item || String(item).length === 0) {
+    return res.json({ ok: false, error: "올바른 값을 입력하세요." });
+  }
   try {
     const data = await Course.find({ courseid });
-    return res.json({ ok: true, data: data[0] });
+    return res.json({ ok: true, data });
   } catch (e) {
     console.log(e);
     return res.json({

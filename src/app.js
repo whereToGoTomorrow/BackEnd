@@ -1,6 +1,7 @@
 require("dotenv").config();
 import "./model/db";
 import "./api";
+import "./getDistance";
 
 import express from "express";
 import globalRouter from "./Routers/globalRouter";
