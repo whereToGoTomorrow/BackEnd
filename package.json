@@ -24,15 +24,15 @@
     "@babel/runtime": "^7.14.8",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.8",
-    "axios": "^0.21.1",
-    "dotenv": "^10.0.0",
     "nodemon": "^2.0.12"
   }
 }
