@@ -1,0 +1,32 @@
+{
+  "name": "init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pakjonghun/firstServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pakjonghun/firstServer/issues"
+  },
+  "homepage": "https://github.com/pakjonghun/firstServer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  }
+}
