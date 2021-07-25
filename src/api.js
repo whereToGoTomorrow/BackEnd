@@ -18,7 +18,11 @@ const api = axios.create({
 
 //지역코드 가져오기
 const getLocationCode = async () => {
-  const data = await api.get("areaCode");
+  const data = await api.get("areaCode", {
+    params: {
+      numOfRows: 30,
+    },
+  });
   const {
     data: {
       response: {
@@ -34,6 +38,8 @@ const getLocationCode = async () => {
     await AreaCodes.create({ code, name, rnum });
   }
 };
+
+getLocationCode();
 
 //지역기반 관광정보 조회 관광코드 25로 각 지역별 코드별 광관지 1 페이지당 20개씩
 const getListData = async () => {
