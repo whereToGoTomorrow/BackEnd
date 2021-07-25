@@ -22,13 +22,13 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "@babel/plugin-transform-runtime": "^7.14.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.7",
-    "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.8",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
