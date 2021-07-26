@@ -34,7 +34,7 @@ export const getWithInKm = async (
       {
         areacode: i,
         contenttypeid: contentType,
-        ...(cat2 && { cate2 }),
+        ...(cat2 && { cat2 }),
       },
       {
         _id: 0,
