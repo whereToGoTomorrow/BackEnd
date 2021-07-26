@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-// const do = process.env.MONGOURL
+const qwe = process.env.MONGOURL;
+console.log(qwe);
 mongoose.connect(process.env.MONGOURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
