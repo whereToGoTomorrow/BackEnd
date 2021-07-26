@@ -1,5 +1,6 @@
 export const getResult = (req, res) => {
   try {
+    const { distance, lat, lng, areaCode, contentType } = req.body;
   } catch (e) {
     console.log(e);
     return res.json({
