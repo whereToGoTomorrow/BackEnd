@@ -23,5 +23,6 @@ const listSchema = new mongoose.Schema({
   readcount: String,
   sigungucode: Number,
   title: String,
+  overview: String,
 });
 export default mongoose.model("DataList", listSchema);

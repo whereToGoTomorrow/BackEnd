@@ -8,5 +8,7 @@ const courseSchema = new mongoose.Schema({
   },
   courseid: Number,
   course: Array,
+  commonDetail: Array,
+  introduceDetail: Array,
 });
 export default mongoose.model("Course", courseSchema);

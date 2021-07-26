@@ -20,5 +20,7 @@ const areaCodeSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
+
+  overView: String,
 });
 export default mongoose.model("AreaCode", areaCodeSchema);
