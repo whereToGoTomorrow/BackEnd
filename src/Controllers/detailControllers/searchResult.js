@@ -1,4 +1,5 @@
 import { getWithInKm } from "../../getDistance";
+import Course from "../../model/Course";
 
 export const getResult = async (req, res) => {
   try {
@@ -26,17 +27,18 @@ export const getResult = async (req, res) => {
 export const getCourse = async (req, res) => {
   const getParam = req.params;
   if (
-    !getParam ||
-    String(getParam).length <= 0 ||
-    String(getParam).length > 20
+    !getParam.contentid ||
+    String(getParam.contentid).length <= 0 ||
+    String(getParam.contentid).length > 20
   ) {
     return res.json({ ok: false, error: "올바른 값을 입력하세요" });
   }
 
   const { contentid } = req.params;
-  console.log(contentid);
-
   try {
+    const data = await Course.findOne({ courseid: contentid });
+
+    return res.json({ ok: true, data });
   } catch (e) {
     return res.json({
       ok: false,
