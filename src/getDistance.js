@@ -19,7 +19,14 @@ function getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2) {
   return d;
 }
 
-export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
+export const getWithInKm = async (
+  lat1,
+  lng1,
+  km,
+  areaCode,
+  contentType,
+  cat2
+) => {
   const allData = [];
 
   for (let i of areaCode) {
@@ -27,6 +34,7 @@ export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
       {
         areacode: i,
         contenttypeid: contentType,
+        ...(cat2 && { cate2 }),
       },
       {
         _id: 0,

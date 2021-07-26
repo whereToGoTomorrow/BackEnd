@@ -35,7 +35,7 @@ export const getCourse = async (req, res) => {
     return res.json({ ok: false, error: "올바른 값을 입력하세요" });
   }
 
-  const { cat2 } = req.params;
+  const { contentid } = req.params;
 
   try {
     const data = await Course.findOne({ courseid: contentid });
@@ -53,18 +53,23 @@ export const getCate = async (req, res) => {
   const getQuery = req.query;
 
   for (let i in getQuery) {
-    if (
-      !getQuery[i] ||
-      String(getQuery[i]).length <= 0 ||
-      String(getQuery[i]).length > 20
-    ) {
-      return res.json({ ok: false, error: "올바른 값을 입력하세요" });
+    if (getQuery[i].length <= 0 || getQuery[i].length > 20) {
+      return res.json({ ok: true, error: "올바른 값을 입력하세요" });
     }
   }
 
-  const { cat2 } = req.query;
+  const { distance, lat, lng, areaCode, contentType, cat2 } = req.query;
+  const newAreaCode = areaCode.split(",");
+
   try {
-    // 또 거리별로 검색 다 해야되는데.. 좌표 필요하고... 그렇다고 합치자니... 너무 리소스 낭비가 커지고..
+    const data = await getWithInKm(
+      lat,
+      lng,
+      distance,
+      newAreaCode,
+      contentType,
+      cat2
+    );
 
     return res.json({ ok: true, data });
   } catch (e) {
