@@ -36,6 +36,9 @@ export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
         mapy: 1,
         title: 1,
         overview: 1,
+        cat1: 1,
+        cat2: 1,
+        cat3: 1,
       }
     );
     allData.push(...results);
@@ -44,7 +47,8 @@ export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
   const result = [];
 
   for (let i of allData) {
-    const { contentid, mapy, mapx, addr1, title, overview } = i;
+    const { contentid, mapy, mapx, addr1, title, overview, cat1, cat2, cat3 } =
+      i;
     if (!mapx || !mapy) {
       continue;
     }
@@ -57,14 +61,17 @@ export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
     if (distance <= km) {
       result.push({
         contentid,
-        distance: Math.round(distance),
         mapy,
         mapx,
         addr1,
         title,
         overview,
+        cat1,
+        cat2,
+        distance: Math.round(distance),
       });
     }
   }
+
   return result;
 };
