@@ -19,12 +19,32 @@ function getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2) {
   return d;
 }
 
-export const getWithInKm = async (lat1, lng1, km) => {
-  const allData = await DataList.find({});
+export const getWithInKm = async (lat1, lng1, km, areaCode, contentType) => {
+  const allData = [];
+
+  for (let i of areaCode) {
+    const results = await DataList.find(
+      {
+        areacode: i,
+        contenttypeid: contentType,
+      },
+      {
+        _id: 0,
+        addr1: 1,
+        contentid: 1,
+        mapx: 1,
+        mapy: 1,
+        title: 1,
+        overview: 1,
+      }
+    );
+    allData.push(...results);
+  }
+
   const result = [];
 
   for (let i of allData) {
-    const { contentid, mapy, mapx, addr1, title } = i;
+    const { contentid, mapy, mapx, addr1, title, overview } = i;
     if (!mapx || !mapy) {
       continue;
     }
@@ -42,6 +62,7 @@ export const getWithInKm = async (lat1, lng1, km) => {
         mapx,
         addr1,
         title,
+        overview,
       });
     }
   }
