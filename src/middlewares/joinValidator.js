@@ -7,10 +7,10 @@ const registerValidation = Joi.object({
   id: Joi.string().email().required(),
   password: Joi.string().min(4).trim().required(), //최소 4자이상, 공백제거하고 받음
   confirmPassword: Joi.ref("password").required(),
-  nickname: Joi.string().alphanum().min(3).trim().required(), //알파벳+숫자, 최소3자이상, 공백제거하고 받음
+  nickname: Joi.string().alphanum().min(3).trim().required(), //알파벳or숫자, 최소3자이상, 공백제거하고 받음
 });
 
-//회원가입 벨리데이션
+//회원가입 검증
 module.exports = async (req, res, next) => {
   try {
     const { nickname, email, password, confirmPassword } =
