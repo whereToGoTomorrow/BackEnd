@@ -3,21 +3,22 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   phoneNumber: {
     type: String,
-    require: true,
     unique: true,
   },
   id: {
     type: String,
-    require: true,
     unique: true,
   },
   password: {
     type: String,
-    require: true,
   },
   nickname: {
     type: String,
     require: true,
+    unique: true,
+  },
+  socialId: {
+    type: String,
     unique: true,
   },
 });
