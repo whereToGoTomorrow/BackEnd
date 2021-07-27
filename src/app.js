@@ -20,4 +20,5 @@ app.use("/", globalRouter);
 app.use("/detail", detailRouter);
 app.use("/oAuth", oAuthRouter);
 app.use("/auth", authRouter);
+
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
