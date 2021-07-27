@@ -1,7 +1,11 @@
 import express from "express";
-import { findPassword } from "../Controllers/authControllers/passwordFind";
+import {
+  changePassword,
+  findPassword,
+} from "../Controllers/authControllers/password";
 
 const authRouter = express.Router();
-authRouter.post("/", findPassword);
+authRouter.post("/password", findPassword);
+authRouter.post("/changepassword", changePassword);
 
 export default authRouter;

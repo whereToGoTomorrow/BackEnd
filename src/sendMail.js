@@ -3,32 +3,30 @@ import sgTransport from "nodemailer-sendgrid-transport";
 
 const options = {
   auth: {
-    api_key: process.env.KEY,
+    api_key: process.env.MAILKEY,
   },
 };
 
 const client = nodemailer.createTransport(sgTransport(options));
 
-// const client = nodemailer.createTransport({
-//   service: "SendGrid",
-//   auth: {
-//     user: process.env.SENDMAILNAME,
-//     pass: process.env.SENDMAILKEY,
-//   },
-// });
+const settingdMail = (to, text) => {
+  const email = {
+    from: process.env.MYMAIL,
+    to: to,
+    subject: "새로운 비밀번호 입니다.",
+    text,
+    html: `<h1>${text}</h1>`,
+  };
 
-const email = {
-  from: "fireking5997@kakao.com",
-  to: "karolos5997@gmail.com",
-  subject: "Hello",
-  text: "Hello world",
-  html: "<b>Hello world</b>",
+  return email;
 };
 
-client.sendMail(email, function (err, info) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Message sent");
-  }
-});
+export const sendMail = (to, text) => {
+  client.sendMail(settingdMail(to, text), function (err, info) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Message sent");
+    }
+  });
+};

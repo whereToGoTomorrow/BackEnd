@@ -11,8 +11,8 @@ export const getResult = async (req, res) => {
       }
     }
 
-    const { distance, lat, lng, areaCode, contentType } = req.body;
-    const data = await getWithInKm(lat, lng, distance, areaCode, contentType);
+    const { lat, lng, areaCode, contentType } = req.body;
+    const data = await getWithInKm(lat, lng, 200, areaCode, contentType);
 
     return res.json({ ok: true, data });
   } catch (e) {
@@ -57,14 +57,14 @@ export const getCate = async (req, res) => {
     }
   }
 
-  const { distance, lat, lng, areaCode, contentType, cat2 } = req.query;
+  const { lat, lng, areaCode, contentType, cat2 } = req.query;
   const newAreaCode = areaCode.split(",");
 
   try {
     const data = await getWithInKm(
       lat,
       lng,
-      distance,
+      200,
       newAreaCode,
       contentType,
       cat2
