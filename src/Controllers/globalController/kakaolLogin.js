@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const startKakao = async (req, res) => {
+const startKakao = async (req, res) => {
   const config = {
     client_id: process.env.KAKAOKEY,
     redirect_uri: "http://localhost:4000/endkakao",
@@ -11,7 +11,7 @@ export const startKakao = async (req, res) => {
   return res.redirect(`${base}?${makeParams}`);
 };
 
-export const endKakao = async (req, res) => {
+const endKakao = async (req, res) => {
   const code = req?.query?.code;
 
   if (!code) {

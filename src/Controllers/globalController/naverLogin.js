@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const startNaver = async (req, res) => {
+const startNaver = async (req, res) => {
   const config = {
     client_id: process.env.NAVERKEY,
     redirect_uri: "http://localhost:4000/endnaver",
@@ -11,7 +11,7 @@ export const startNaver = async (req, res) => {
   res.redirect(`${base}?${makeParams}`);
 };
 
-export const endNaver = async (req, res) => {
+const endNaver = async (req, res) => {
   try {
     let token = null;
     let userInfo = null;
