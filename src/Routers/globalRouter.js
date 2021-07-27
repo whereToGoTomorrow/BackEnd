@@ -5,11 +5,10 @@ import {
   getinfo,
 } from "../Controllers/globalController/kakaolLogin";
 import {
-  join,
-  login,
-  authNaver,
-  callbackAuthNaver,
-} from "../Controllers/globalController/loginAndJoin";
+  startNaver,
+  endNaver,
+} from "../Controllers/globalController/naverLogin";
+import { join, login } from "../Controllers/globalController/loginAndJoin";
 
 import joinValidator from "../middlewares/joinValidator";
 
@@ -19,9 +18,8 @@ globalRouter.post("/join", joinValidator, join);
 
 globalRouter.post("/login", login);
 
-globalRouter.post("/oauth/naver", authNaver);
-
-globalRouter.post("/oauth/callback/naver", callbackAuthNaver);
+globalRouter.get("/startnaver", startNaver);
+globalRouter.get("/endnaver", endNaver);
 
 globalRouter.get("/startkakao", startKakao);
 globalRouter.get("/endkakao", endKakao);
