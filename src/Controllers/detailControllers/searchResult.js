@@ -6,6 +6,9 @@ export const getResult = async (req, res) => {
     const getParam = req.body;
 
     for (let i in getParam) {
+      if (i === "areaCode") {
+        continue;
+      }
       if (String(getParam[i]).length <= 0 || String(getParam[i]).length > 20) {
         return res.json({ ok: true, error: "올바른 값을 입력하세요" });
       }
