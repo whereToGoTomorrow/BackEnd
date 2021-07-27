@@ -44,6 +44,7 @@ module.exports = async (req, res, next) => {
 
     next();
   } catch (err) {
+    console.log(err);
     res.status(400).send({
       errorMessage: "요청한 형식이 올바르지 않습니다.",
     });
