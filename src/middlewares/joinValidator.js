@@ -4,7 +4,7 @@ import Joi from "joi";
 const joinValidation = Joi.object({
   phoneNumber: Joi.string().required(),
   id: Joi.string().email().required(),
-  password: Joi.string().min(4).trim().required(), //최소 4자이상, 공백제거하고 받음
+  password: Joi.string().min(8).trim().required(), //최소 8자이상, 공백제거하고 받음
   confirmPassword: Joi.ref("password"),
   nickname: Joi.string().alphanum().min(3).trim().required(), //알파벳or숫자, 최소3자이상, 공백제거하고 받음
 });
