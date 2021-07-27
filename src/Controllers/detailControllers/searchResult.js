@@ -51,7 +51,6 @@ export const getCourse = async (req, res) => {
 
 export const getCate = async (req, res) => {
   const getQuery = req.query;
-
   for (let i in getQuery) {
     if (getQuery[i].length <= 0 || getQuery[i].length > 20) {
       return res.json({ ok: true, error: "올바른 값을 입력하세요" });

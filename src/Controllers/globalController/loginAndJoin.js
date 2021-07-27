@@ -34,15 +34,14 @@ export const join = async (req, res) => {
   try {
     const { phoneNumber, id, password, nickname } = req.body;
     const encryptedPassword = SHA256(password).toString();
-
+    console.log(req.body);
     await User.create({
       phoneNumber,
       id,
       password: encryptedPassword,
       nickname,
     });
-
-    res.send({});
+    res.send({ ok: true });
   } catch (e) {
     console.log(e);
     return res.json({
