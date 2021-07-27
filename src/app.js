@@ -6,6 +6,7 @@ import "./getDistance";
 import express from "express";
 import globalRouter from "./Routers/globalRouter";
 import detailRouter from "./Routers/detailRouter";
+import authRouter from "./Routers/authRouter";
 
 const app = express();
 
@@ -16,4 +17,5 @@ const PORT = process.env.PORT || 4000;
 
 app.use("/", globalRouter);
 app.use("/detail", detailRouter);
+app.use("/auth", authRouter);
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
